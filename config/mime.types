@@ -1,0 +1,18 @@
+# MIME types par défaut
+
+text/html                           html htm bla;
+text/css                            css;
+text/javascript                     js;
+image/jpeg                          jpeg jpg;
+image/png                           png;
+image/gif                           gif;
+image/x-icon                        ico;
+application/json                    json;
+application/xml                     xml;
+application/pdf                     pdf;
+application/zip                     zip;
+audio/mpeg                          mp3;
+video/mp4                           mp4;
+application/octet-stream            bin exe;
+text/plain                          txt;
+font/truetype                       ttf;
