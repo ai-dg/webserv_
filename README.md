@@ -105,16 +105,6 @@ or one of the websites here
 
 <img src="https://github.com/user-attachments/assets/de36531f-c3c2-4068-824c-271b51edb428" width="500">
 
-### ▶️ **Upload a File via cURL**
-```sh
-curl -X POST -F "file=@test.txt" http://localhost:8080/uploads/  
-```
-
-### ▶️ **Execute a CGI Script**
-```sh
-curl http://localhost:8080/cgi-bin/script.py  
-```
-
 ## 📜 License
 
 This project was completed as part of the **42 School** curriculum.  
