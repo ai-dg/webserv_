@@ -111,7 +111,7 @@ Launch in one terminal webserver program:
 ./webserv config/tests.conf
 ```
 
-Launch in another terminal the 42 tester:
+Launch in other different terminal the 42 tester:
 ```sh
 ./tests/ubuntu_tester http://127.1.1.1:8001
 ```
