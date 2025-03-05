@@ -105,6 +105,17 @@ or one of the websites here
 
 <img src="https://github.com/user-attachments/assets/de36531f-c3c2-4068-824c-271b51edb428" width="500">
 
+### ▶️ **Test with 42 Tester**
+Launch in one terminal webserver program:
+```sh
+./webserv config/tests.conf
+```
+
+Launch in another terminal the 42 tester:
+```sh
+./tests/ubuntu_tester http://127.1.1.1:8001
+```
+
 ## 📜 License
 
 This project was completed as part of the **42 School** curriculum.  
