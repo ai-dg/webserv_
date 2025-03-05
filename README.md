@@ -34,19 +34,16 @@ It supports **multiple server blocks**, similar to Nginx.
 
 **Example Configuration (`config.conf`):**
 ```conf
-server { listen 8080; server_name myserver.com;
-location / {
-    root /var/www/html;
-    index index.html;
-}
+server {
+    listen 8080;
+    host 127.0.0.2;
+    server_name default.42.fr;
 
-location /cgi-bin/ {
-    cgi_pass /usr/bin/python3;
-}
-
-location /uploads/ {
-    upload_enable on;
-    upload_store /var/www/uploads;
+    location / {
+        root /www/default/html/;
+        index index.html;
+        methods GET;
+    }
 }
 ```
 
