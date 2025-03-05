@@ -1,2 +1,128 @@
-# webserv_
-This project is about writing your own HTTP server. You will be able to test it with an actual browser. HTTP is one of the most used protocols on the internet. Knowing its arcane will be useful, even if you won’t be working on a website.
+# 🌐 Webserv - Custom HTTP Server
+
+<img src="https://github.com/user-attachments/assets/6850e6ac-9dd4-4e4e-8f71-b40f5bcc73ee" width="500">
+
+![Score](https://img.shields.io/badge/Score-125%25-brightgreen)  
+📌 **42 School - Network & Web Server Project**  
+
+## 📝 Description
+**Webserv** is a **custom HTTP server** written in **C++ 98**, built from scratch to handle HTTP requests, static content, CGI execution, and file uploads.  
+It was developed as a **team project** with [Christophe Albor Pirame](https://github.com/CronopioSalvaje).  
+This project helped us understand **how web servers like Nginx or Apache work** internally.
+
+## 🔥 Key Features
+✅ **Supports multiple HTTP methods** (`GET`, `POST`, `DELETE`)  
+✅ **Handles multiple clients using `poll()` for non-blocking I/O**  
+✅ **Processes requests with proper status codes & error handling**  
+✅ **Parses a custom configuration file to define server behavior**  
+✅ **Executes CGI scripts (Python, PHP, etc.)**  
+✅ **Manages static file serving and directory listing**  
+✅ **Supports multiple virtual hosts & ports**  
+✅ **Allows file uploads via HTTP POST**  
+
+## 🏆 Result: **125% Score**
+The project was successfully validated with a **125% score**, including full implementation of mandatory and bonus features. 🎉
+
+## 📁 Files
+- `webserv.hpp` → Core server headers and data structures  
+- `Server.cpp` → Handles socket binding, listening, and client requests  
+- `Makefile` → Automates compilation (`all`, `clean`, `fclean`, `re`, `bonus`)  
+
+## ⚙️ **Configuration File**
+Webserv loads a **configuration file** defining **virtual hosts, routes, and CGI settings**.  
+It supports **multiple server blocks**, similar to Nginx.  
+
+**Example Configuration (`config.conf`):**
+```conf
+server { listen 8080; server_name myserver.com;
+location / {
+    root /var/www/html;
+    index index.html;
+}
+
+location /cgi-bin/ {
+    cgi_pass /usr/bin/python3;
+}
+
+location /uploads/ {
+    upload_enable on;
+    upload_store /var/www/uploads;
+}
+```
+
+## 📂 **HTTP Features**
+### 🔹 **Supported Methods**
+| Method | Description |
+|--------|-------------|
+| `GET` | Retrieves files from the server |
+| `POST` | Uploads files or submits form data |
+| `DELETE` | Removes files from the server |
+
+### 🔹 **CGI Execution**
+- **Executes Python/PHP scripts** in a sandboxed environment  
+- **Parses CGI output** and sends it as an HTTP response  
+
+### 🔹 **File Uploads**
+- **Handles multipart form data** (`Content-Type: multipart/form-data`)  
+- **Stores uploaded files** in a configurable directory  
+
+## 🎯 **Bonus Features**
+| Feature | Description |
+|---------|-------------|
+| ✅ **Multiple virtual hosts** | Supports multiple domain names |
+| ✅ **Directory listing** | Enables browsing server files |
+| ✅ **Custom error pages** | Displays user-defined error messages |
+| ✅ **Load balancing (Round Robin)** | Distributes traffic across multiple backends |
+
+## ⚙️ **Dependencies**
+Before compiling Webserv, install the required dependencies:
+
+### **On Debian/Ubuntu**
+```sh
+sudo apt update  
+sudo apt install python3.10  
+```
+
+### **On Fedora**
+```sh
+sudo dnf install python3.10  
+```
+
+## 🚀 Compilation & Usage
+### 🛠 **Compile the Program**
+```sh
+make
+``` 
+
+### ▶️ **Run Webserv**
+```sh
+./webserv config.conf
+```
+
+or ./webserv to run a default conf file
+
+### ▶️ **Test with a Web Browser**
+http://localhost:8000
+
+or one of the websites here
+
+<img src="https://github.com/user-attachments/assets/de36531f-c3c2-4068-824c-271b51edb428" width="500">
+
+### ▶️ **Upload a File via cURL**
+```sh
+curl -X POST -F "file=@test.txt" http://localhost:8080/uploads/  
+```
+
+### ▶️ **Execute a CGI Script**
+```sh
+curl http://localhost:8080/cgi-bin/script.py  
+```
+
+## 📜 License
+
+This project was completed as part of the **42 School** curriculum.  
+It is intended for **academic purposes only** and follows the evaluation requirements set by 42.  
+
+Unauthorized public sharing or direct copying for **grading purposes** is discouraged.  
+If you wish to use or study this code, please ensure it complies with **your school's policies**.  
+
